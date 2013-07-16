@@ -28,7 +28,7 @@ Installation Guide:
  
 1.Upload the  plugin to your blog and just activate it.
 
-2.Goto your "Lao3dÉèÖÃ" and then set default height and width of 3D Model in pages.
+2.Goto your "Lao3dè®¾ç½®" and then set default height and width of 3D Model in pages.
 
 3.Use Tiny mce editor button to add shortcodes to your editor, you can get model url from http://www.lao3d.com.
 
@@ -46,7 +46,7 @@ Installation Guide:
 
 1.Upload the  plugin to your blog and just activate it.
 
-2.Goto your "Lao3dÉèÖÃ" and then set default height and width of 3D Model in pages.
+2.Goto your "Lao3dè®¾ç½®" and then set default height and width of 3D Model in pages.
 
 3.Use Tiny mce editor button to add shortcodes to your editor, you can get model url from http://www.lao3d.com.
 
@@ -77,7 +77,7 @@ How To Install This Plugin.
 Ans. 
 1.Upload the  plugin to your blog and just activate it.
 
-2.Goto your "Lao3dÉèÖÃ" and then set default height and width of 3D Model in pages.
+2.Goto your "Lao3dè®¾ç½®" and then set default height and width of 3D Model in pages.
 
 3.Use Tiny mce editor button to add shortcodes to your editor, you can get model url from http://www.lao3d.com.
 
