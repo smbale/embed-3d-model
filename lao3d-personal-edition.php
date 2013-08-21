@@ -5,7 +5,7 @@ Plugin URI: http://wordpress.org/#
 Description: This plugin helps you easily insert 3D Model in your posts or pages using short tags or the text editor.
 Author: wxstorm	
 Licence:GPL 3
-Version: 1.0
+Version: 1.1
 Author URI: http://www.lao3d.com
  */
 
@@ -36,7 +36,7 @@ class LP_Personal_Buttons {
         return $buttons;
     }
     function mce_external_plugins($plugin_array) {
-        $plugin_array['lao3d_personal_edition']  =  plugins_url('/lao3d-personal-edition/tiny-mce/editor-plugin.js');
+        $plugin_array['lao3d_personal_edition']  =  plugins_url('tiny-mce/editor-plugin.js', __FILE__);
         return $plugin_array;
     }
     function tiny_mce_version($version) {
@@ -49,6 +49,7 @@ class Lao3d_Personal{
         add_shortcode('lao3dp', array(&$this, 'build_lao3d'));
         add_action('admin_menu', array(&$this,'lao3d_add_pages'));
         add_action('init', array(&$this,'LP_Buttons'));
+        add_filter('plugin_action_links', array(&$this,'lao3d_plugin_action_links'), 10, 2);
     }
     
     //builds the 3d model.
@@ -60,7 +61,7 @@ class Lao3d_Personal{
             'src'    		=> '',
 	    ), $atts));
         
-        $output = '<iframe src="' . $src . '" width="' . $width . '" height="' . $height . '"></iframe>';
+        $output = '<iframe src="' . $src . '" width="' . $width . '" height="' . $height . '"  border="0" frameborder="no" marginwidth="0" marginheight="0"></iframe>';
         
 	    return $output;
     }
@@ -134,6 +135,22 @@ class Lao3d_Personal{
 		</form>
 	</div>
 <?php
+    }
+    
+    //settings
+    function lao3d_plugin_action_links($links, $file) {
+        static $this_plugin;
+
+        if (!$this_plugin) {
+            $this_plugin = plugin_basename(__FILE__);
+        }
+
+        if ($file == $this_plugin) {            
+            $settings_link = '<a href="' . get_bloginfo('wpurl') . '/wp-admin/admin.php?page=Lao3dPersonalEdition">Settings</a>';
+            array_unshift($links, $settings_link);
+        }
+
+        return $links;
     }
     
     function LP_Buttons(){

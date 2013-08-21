@@ -16,7 +16,7 @@
 			// Register the command so that it can be invoked by using tinyMCE.activeEditor.execCommand('mceExample');
 		    ed.addCommand('lao3dPersonal', function () {
 				ed.windowManager.open({
-					file : url + '/dialog.htm',
+					file : url + '/dialog.php',
 					width: 620 + ed.getLang('lao3d_personal_edition.delta_width', 0),
 					height: 300 + ed.getLang('lao3d_personal_edition.delta_height', 0),
 					inline : 1

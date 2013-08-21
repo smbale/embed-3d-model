@@ -1,10 +1,22 @@
+<?php
+
+include_once '../../../../wp-blog-header.php';
+
+define("LAO3D_PERSONAL_DEFAULT_WIDTH", 600);
+define("LAO3D_PERSONAL_DEFAULT_HEIGHT", 450);
+
+//lao3d-related options name define.
+define("LAO3D_PERSONAL_OPTION_WIDTH", "lao3d_personal_width");
+define("LAO3D_PERSONAL_OPTION_HEIGHT", "lao3d_personal_height");
+
+?>
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>插入3D模型</title>
     <link rel="stylesheet" href="../../../../wp-includes/js/tinymce/themes/advanced/skins/wp_theme/dialog.css">
     <script src="../../../../wp-includes/js/tinymce/tiny_mce_popup.js" type="text/javascript"></script>
     <script src="../../../../wp-includes/js/jquery/jquery.js" type="text/javascript"></script>
-    <script src="../lib/jquery.uploadify.min.js" type="text/javascript"></script>
     <style media="screen" type="text/css">
         *
         {
@@ -85,10 +97,14 @@
                     <input type="text" id="lao3durl" autocomplete="off" style="width: 95%;">
                 </td>
                 <td>
-                    <input id="width" size="3" value="518" class="px p_fre" autocomplete="off">
+                    <input id="width" size="3" value="<?php 
+                                                      $op_width = get_option(LAO3D_PERSONAL_OPTION_WIDTH);
+                                                      echo empty($op_width)? LAO3D_PERSONAL_DEFAULT_WIDTH: $op_width; ?>" class="px p_fre" autocomplete="off">
                 </td>
                 <td>
-                    <input id="height" size="3" value="384" class="px p_fre" autocomplete="off">
+                    <input id="height" size="3" value="<?php 
+                                                       $op_height = get_option(LAO3D_PERSONAL_OPTION_HEIGHT);
+                                                       echo empty($op_height)? LAO3D_PERSONAL_DEFAULT_HEIGHT:$op_height; ?>" class="px p_fre" autocomplete="off">
                 </td>
             </tr>
         </tbody>

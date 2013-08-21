@@ -26,11 +26,11 @@ lao3d personal edition : used to insert and display 3D Model from LAO3D.COM in y
 
 Installation Guide:
  
-1.Upload the  plugin to your blog and just activate it.
+1.Upload the  plugin to your blog and just activate it , or,  in wordpress admin pages, "Plugins"--"Add New", search "embed 3D Model", find "Lao3D 3D Model Online", Install and activate it.
 
 2.Goto your "Lao3d设置" and then set default height and width of 3D Model in pages.
 
-3.Use Tiny mce editor button to add shortcodes to your editor, you can get model url from http://www.lao3d.com.
+3.Then when Add new Post or Page, you will find a button of "3D" in the editor toolbar, Use the button to insert 3D Model, you can get model url from http://www.lao3d.com.
 
 
 	= More Details & Support =
@@ -44,15 +44,18 @@ Installation Guide:
 
 == Installation ==
 
-1.Upload the  plugin to your blog and just activate it.
+1.Upload the  plugin to your blog and just activate it , or,  in wordpress admin pages, "Plugins"--"Add New", search "embed 3D Model", find "Lao3D 3D Model Online", Install and activate it.
 
 2.Goto your "Lao3d设置" and then set default height and width of 3D Model in pages.
 
-3.Use Tiny mce editor button to add shortcodes to your editor, you can get model url from http://www.lao3d.com.
+3.Then when Add new Post or Page, you will find a button of "3D" in the editor toolbar, Use the button to insert 3D Model, you can get model url from http://www.lao3d.com.
 
 
 
 == Changelog ==
+= 1.1 =
+
+* Fix some bugs.
 
 = 1.0 =
 
@@ -60,8 +63,9 @@ Installation Guide:
 
 == Upgrade Notice ==
 
-= 1.0 =
-* This is The Very First Release of the Plugin
+= 1.1 =
+
+* Fix some bugs.
 
 
 == Screenshots ==
@@ -75,9 +79,8 @@ http://www.lao3d.com
 How To Install This Plugin.
 
 Ans. 
-1.Upload the  plugin to your blog and just activate it.
+1.Upload the  plugin to your blog and just activate it , or,  in wordpress admin pages, "Plugins"--"Add New", search "embed 3D Model", find "Lao3D 3D Model Online", Install and activate it.
 
 2.Goto your "Lao3d设置" and then set default height and width of 3D Model in pages.
 
-3.Use Tiny mce editor button to add shortcodes to your editor, you can get model url from http://www.lao3d.com.
-
+3.Then when Add new Post or Page, you will find a button of "3D" in the editor toolbar, Use the button to insert 3D Model, you can get model url from http://www.lao3d.com.
