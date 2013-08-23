@@ -9,7 +9,7 @@ $errret = '{"ret": 1, "msg": "上传失败"}';
 
 if (!empty($_FILES) && $_FILES["obj"]["error"] == 0) {
     $tempFile = $_FILES['obj']['tmp_name'];	
-    $targetPath = pathinfo($tempFile)['dirname'];
+    $targetPath = pathinfo($tempFile, PATHINFO_DIRNAME);
 	$targetFile = rtrim($targetPath,'/') . '/' . $_FILES['obj']['name'];    
 	
 	// Validate the file type
