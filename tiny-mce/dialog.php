@@ -127,7 +127,7 @@ require_once '../lao3d-common.php';
         如何获得捞3D三维模型地址?有以下两种方式:<br>
         在捞3D网站中的模型展示页面,复制地址栏Url,粘贴即可.<br>
         在捞3D网站中的模型展示页面下方,找到分享链接复制HTML代码,粘贴即可.</div>
-    <div style="float: right; ">
+    <div style="text-align: right;">
         <input type="submit" value="提交" name="insert" id="insert" onclick="code_builder()"
             style="background: #2A70C0; color: #fff; width: 4em; text-align: center;">
     </div>
