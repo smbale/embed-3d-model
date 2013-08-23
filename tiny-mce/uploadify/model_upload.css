@@ -1,0 +1,259 @@
+
+#panel_info {
+	position: relative;
+	width: 50px;
+	height: 240px;
+	float: left;
+}
+
+.panel_one_info {
+	position: relative;
+	width: 50px;
+	height: 25px;
+	margin-bottom: 10px;
+	float: left;
+}
+
+.label_info {
+	position: absolute;
+	width: 50px;
+	height: 25px;
+	line-height: 23px;
+	text-align: left;
+	font-size: 14px;
+}
+
+.edit_text {
+	position: absolute;
+	width: 240px;
+	height: 25px;
+	border: solid 1px rgb(192, 192, 192);
+	line-height: 25px;
+	text-indent: 5px;
+	color: rgb(50, 50, 50);
+	left: 50px;
+	resize: none;
+}
+#panel_tag {
+	height: 90px;
+}
+
+#panel_tag_checkboxes {
+	position: relative;
+	width: 258px;
+	height: 60px;
+	float: left;
+}
+
+.checkbox_one {
+	position: relative;
+	width: 62px;
+	height: 26px;
+	float: left;
+}
+
+#panel_tag_checkboxes input {
+	position: relative;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+}
+
+.label_checkbox {
+	margin-left: 2px;
+	line-height: 26px;
+	font-size: 13px;
+}
+
+#panel_other_tag {
+	position: relative;
+	width: 232px;
+	height: 26px;
+	float: left;
+}
+
+#label_other_tag {
+	position: relative;
+	height: 26px;
+	line-height: 26px;
+	float: left;
+	font-size: 13px;
+	width: 60px;
+	text-align: left;
+}
+
+#edit_other_tag {
+	position: absolute;
+	width: 170px;
+	left: 60px;
+	font-size: 12px;
+	line-height: 25px;
+	color: rgb(156, 156, 156);
+}
+#panel_tag_right {
+	border: none;
+}
+#textarea_introduce {
+	height: 100px;
+}
+#panel_main_inner {
+	position: relative;
+	width: 750px;
+	margin-left: 0px;
+	margin-right: auto;
+	text-align: left;
+	height: 280px;
+}
+
+#panel_upload_model {
+	position: relative;
+	width: 445px;
+	height: 260px;
+	float: right;
+	background-color: rgb(240, 240, 240);
+	text-align: center;
+}
+
+#button_upload_model {
+	position: absolute;
+	width: 130px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background-color: rgb(73, 190, 243);
+	color: white;
+	font-size: 15px;
+	font-weight: 700;
+	left: 330px;
+	bottom: 2px;
+	cursor:pointer;
+	
+}
+
+#panel_upload_model_inner {
+	position: relative;
+	float: left;
+	width: 420px;
+	height: 200px;
+	background-color: white;
+	margin-left: 14px;
+}
+
+.panel_select_hint {
+	position: absolute;
+	left: 0;
+	width: 410px;
+	height: 190px;
+	line-height: 190px;
+	font-size: 20px;
+	font-weight: 800;
+	text-align: center;
+	color: rgb(205, 205, 205);
+	z-index: 100;
+}
+
+#button_select_model {
+	position: relative;
+	margin-top: 12px;
+	margin-left: 14px;
+	float: left;
+	height: 30px;
+	width: 120px;
+}
+
+#button_select_model .swfupload {
+	position: absolute;
+	left: 0;
+	width: 120px;
+}
+
+#button_select_model-button {
+	background-image: none;
+	background-color: rgb(117, 176, 48);
+	font-size: 15px;
+	color: white;
+	border-radius: 0;
+	border-width: 0;
+	font-weight: 600;
+}
+
+#button_select_model-queue {
+	position: absolute;
+	width: 410px;
+	height: 244px;
+	background-color: white;
+	left: 15px;
+	top: 100px;
+	overflow-y: auto;
+}
+
+#button_select_model-queue .uploadify-queue-item {
+	max-width: 410px;
+	height: 40px;
+	background-color: white;
+	margin-top: 20px;
+	padding: 0;
+}
+
+#button_select_model-queue .uploadify-queue-item .fileName {
+	position: absolute;
+	height: 14px;
+	width: 340px;
+	line-height: 14px;
+	color: rgb(189, 189, 189);
+	text-align: left;
+	margin-top: 20px;
+	right: 20px;
+	overflow: hidden;
+}
+
+#button_select_model-queue .uploadify-queue-item .uploadify-progress {
+	position: absolute;
+	width: 315px;
+	height: 6px;
+	background-color: rgb(233, 233, 233);
+	right: 30px;
+	margin-top: 5px;
+}
+
+#button_select_model-queue .uploadify-queue-item .uploadify-progress-bar
+	{
+	width: 0;
+	height: 6px;
+	background-color: rgb(117, 176, 48);
+}
+.upload_tip {
+	position: relative;
+	bottom: 0;
+	margin: 20px;
+	text-align: left;
+	text-decoration: underline;
+	color: rgb(73, 190, 243);
+	cursor: pointer;
+	float: right;
+}
+
+#button_select_model-queue .uploadify-queue-item .cancel a {
+	position: absolute;
+	background-image: url('stop2.png');
+	right: 0;
+	margin-top: 20px;
+	width: 14px;
+	height: 14px;
+}
+
+.img_upload_model {
+	position: relative;
+	background-image: url('filetype.png');
+	width: 40px;
+	height: 32px;
+	float: left;
+}
+
+
+#button_select_model-queue {
+	height: 190px;
+	top: 20px;
+}
+
+

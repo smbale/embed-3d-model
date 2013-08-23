@@ -1,13 +1,7 @@
 <?php
 
 include_once '../../../../wp-blog-header.php';
-
-define("LAO3D_PERSONAL_DEFAULT_WIDTH", 600);
-define("LAO3D_PERSONAL_DEFAULT_HEIGHT", 450);
-
-//lao3d-related options name define.
-define("LAO3D_PERSONAL_OPTION_WIDTH", "lao3d_personal_width");
-define("LAO3D_PERSONAL_OPTION_HEIGHT", "lao3d_personal_height");
+require_once '../lao3d-common.php';
 
 ?>
 
@@ -15,8 +9,10 @@ define("LAO3D_PERSONAL_OPTION_HEIGHT", "lao3d_personal_height");
 <head>
     <title>插入3D模型</title>
     <link rel="stylesheet" href="../../../../wp-includes/js/tinymce/themes/advanced/skins/wp_theme/dialog.css">
+    <link rel="stylesheet" href="../css/jquery/smoothness/jquery-ui-1.10.3.custom.min.css">
     <script src="../../../../wp-includes/js/tinymce/tiny_mce_popup.js" type="text/javascript"></script>
-    <script src="../../../../wp-includes/js/jquery/jquery.js" type="text/javascript"></script>
+    <script src="../lib/jquery.js" type="text/javascript"></script>
+    <script src="../lib/jquery-ui.js" type="text/javascript"></script>     
     <style media="screen" type="text/css">
         *
         {
@@ -48,7 +44,7 @@ define("LAO3D_PERSONAL_OPTION_HEIGHT", "lao3d_personal_height");
         }
     </style>
     <script type="text/javascript">
-
+    
         function getrealmodelsrc(src) {
             tmp = /modelid=([0-9]+)|^\s*([0-9]+)\s*$/.exec(src);            
             if (tmp)                
@@ -67,12 +63,34 @@ define("LAO3D_PERSONAL_OPTION_HEIGHT", "lao3d_personal_height");
             tinyMCEPopup.close();
 
             return false;
-        };
+        }
+        
+        function insertModelAddr(modelID) {                
+            var addr = "http://www.lao3d.com/model.html?modelid=" + modelID;
+            document.getElementById("lao3durl").value = addr;
+            $("#tabs").tabs("option", "active", 1);
+        }
+        
+        $(function()
+        {
+            $("#tabs").tabs();
+        });   
 
     </script>
 </head>
 <body>
-    <form method='post'>
+
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">上传模型</a></li>
+    <li><a href="#tabs-2">插入3D链接</a></li>
+  </ul>
+  <div id="tabs-1">
+   <iframe name="lao3d_upload" src="model_upload.html" frameborder="0" scrolling="no" height=350 style="width:100%;height:350px" ></iframe>
+  </div>
+  <div id="tabs-2">
+  
+   <form method='post'>
     <h1 id="title">
         插入3D链接</h1>
     <div>
@@ -97,14 +115,10 @@ define("LAO3D_PERSONAL_OPTION_HEIGHT", "lao3d_personal_height");
                     <input type="text" id="lao3durl" autocomplete="off" style="width: 95%;">
                 </td>
                 <td>
-                    <input id="width" size="3" value="<?php 
-                                                      $op_width = get_option(LAO3D_PERSONAL_OPTION_WIDTH);
-                                                      echo empty($op_width)? LAO3D_PERSONAL_DEFAULT_WIDTH: $op_width; ?>" class="px p_fre" autocomplete="off">
+                    <input id="width" size="3" value="<?php echo get_option(LAO3D_PERSONAL_OPTION_WIDTH, LAO3D_PERSONAL_DEFAULT_WIDTH); ?>" class="px p_fre" autocomplete="off">
                 </td>
                 <td>
-                    <input id="height" size="3" value="<?php 
-                                                       $op_height = get_option(LAO3D_PERSONAL_OPTION_HEIGHT);
-                                                       echo empty($op_height)? LAO3D_PERSONAL_DEFAULT_HEIGHT:$op_height; ?>" class="px p_fre" autocomplete="off">
+                    <input id="height" size="3" value="<?php echo get_option(LAO3D_PERSONAL_OPTION_HEIGHT, LAO3D_PERSONAL_DEFAULT_HEIGHT); ?>" class="px p_fre" autocomplete="off">
                 </td>
             </tr>
         </tbody>
@@ -113,10 +127,16 @@ define("LAO3D_PERSONAL_OPTION_HEIGHT", "lao3d_personal_height");
         如何获得捞3D三维模型地址?有以下两种方式:<br>
         在捞3D网站中的模型展示页面,复制地址栏Url,粘贴即可.<br>
         在捞3D网站中的模型展示页面下方,找到分享链接复制HTML代码,粘贴即可.</div>
-    <div style="float: right; margin: 10px 0">
+    <div style="float: right; ">
         <input type="submit" value="提交" name="insert" id="insert" onclick="code_builder()"
             style="background: #2A70C0; color: #fff; width: 4em; text-align: center;">
     </div>
+    <br /><br />
     </form>
+    
+  </div>
+  
+</div>
+    
 </body>
 </html>

@@ -1,0 +1,395 @@
+﻿<!doctype html>
+<html>
+<head>
+    <title>lao3D</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="cache-control" content="no-cache" />
+
+    <link rel="stylesheet" type="text/css" href="uploadify/model_upload.css" />
+    <link rel="stylesheet" type="text/css" href="uploadify/uploadify.css" />
+
+    <script type="text/javascript" src="uploadify/jquery.js"></script>
+    <script type="text/javascript" src="uploadify/jquery.uploadify.min.js"></script>
+
+    <script type="text/javascript">
+
+        function getUrlParam(paramName) {
+            var reParam = new RegExp('(?:[\?&]|&)' + paramName + '=([^&]+)', 'i');
+            var match = window.location.search.match(reParam);
+
+            return (match && match.length > 1) ? match[1] : null;
+        }
+
+    </script>
+
+    <style type="text/css">
+        <!--
+        p
+        {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        a
+        {
+            color: #039;
+        }
+
+            a:hover
+            {
+                color: #f60;
+            }
+
+        .pop
+        {
+            font-size: 14px;
+            position: absolute;
+            left: 40px;
+            top: 20px;
+            width: 515px;
+            height: 140px;
+            background: #FFFFFF;
+            border: 8px solid #DDD;
+        }
+
+        .pop_head
+        {
+            position: relative;
+            height: 18px;
+        }
+
+            .pop_head img
+            {
+                border: none;
+                margin: 8px 0px 0 0;
+            }
+
+            .pop_head a
+            {
+                position: absolute;
+                right: 8px;
+                line-height: 20px;
+                color: #000;
+                text-decoration: none;
+            }
+
+                .pop_head a:hover
+                {
+                    color: #f60;
+                    text-decoration: none;
+                }
+
+        .pop_body
+        {
+            padding: 0 13px 2px;
+        }
+
+        .miaosu
+        {
+            line-height: 16px;
+            background: #fff6ea;
+            border: solid 1px #ffecd5;
+            padding: 4px 8px;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .pop_p
+        {
+            line-height: 16px;
+            color: #888;
+            padding-top: 5px;
+            border-top: dashed 1px #CCC;
+        }
+
+        -->
+    </style>
+</head>
+<body>
+    <div id="panel_main_inner">
+        <div id="panel_info">
+            <div class="panel_one_info">
+                <div class="label_info">模型名</div>
+                <input class="edit_text" type="text" id="edit_name" maxlength="25">
+            </div>
+            <div class="panel_one_info" id="panel_tag">
+                <div class="label_info">标签</div>
+                <div class="edit_text" id="panel_tag_right">
+                    <div id="panel_tag_checkboxes">
+                        <label class="checkbox_one label_checkbox">
+                            <input
+                                type="checkbox" name="tag" value="人物"></input>
+                            <div class="label_checkbox">人物</div>
+                        </label>
+                        <label
+                            class="checkbox_one label_checkbox">
+                            <input
+                                type="checkbox" name="tag" v value="动物"></input>
+                            <div class="label_checkbox">动物</div>
+                        </label>
+                        <label
+                            class="checkbox_one label_checkbox">
+                            <input
+                                type="checkbox" name="tag" v value="游戏"></input>
+                            <div class="label_checkbox">游戏</div>
+                        </label>
+                        <label
+                            class="checkbox_one label_checkbox">
+                            <input
+                                type="checkbox" name="tag" v value="汽车"></input>
+                            汽车
+                        </label>
+                        <label
+                            class="checkbox_one label_checkbox">
+                            <input
+                                type="checkbox" name="tag" v value="动漫"></input>
+                            动漫
+                        </label>
+                        <label
+                            class="checkbox_one label_checkbox">
+                            <input
+                                type="checkbox" name="tag" v value="数码"></input>
+                            数码
+                        </label>
+                        <label
+                            class="checkbox_one label_checkbox">
+                            <input
+                                type="checkbox" name="tag" v value="场景"></input>
+                            场景
+                        </label>
+                        <label
+                            class="checkbox_one label_checkbox">
+                            <input
+                                type="checkbox" name="tag" v value="创意"></input>
+                            创意
+                        </label>
+                    </div>
+
+                    <div id="panel_other_tag">
+                        <div id="label_other_tag">其他标签</div>
+                        <input id="edit_other_tag" class="edit_text" type="text"
+                            value="多个标签间用空格分开"></input>
+                    </div>
+                </div>
+            </div>
+            <div class="panel_one_info">
+                <div class="label_info">描述</div>
+                <textarea class="edit_text" id="textarea_introduce"
+                    maxlength="140"></textarea>
+            </div>
+        </div>
+        <div id="panel_upload_model">
+            <div id="panel_total_progress" class="uploadify-progress">
+            </div>
+            <div id="panel_upload_model_inner">
+                <div id="panel_select_hint1" class="panel_select_hint">
+                    请选择.rar,.zip模型文件包
+                </div>
+            </div>
+            <input id='button_select_model' type='file' multiple='true'></input>
+            <div class="upload_tip">上传帮助</div>
+        </div>
+    </div>
+    <div id="button_upload_model" class="label_click">开始上传</div>
+    <div id="pop" class="pop" style="display: none; z-index: 500;">
+        <div class="pop_head" style="background-color: transparent;">
+            <a href="javascript:void(0);" class="guanbi_hide">关闭</a>
+        </div>
+        <div class="pop_body">
+            <div class="miaosu">
+                <p>限定大小：压缩包文件不能超过50M</p>
+                <p>您可以将模型与贴图文件打包上传,支持zip和rar格式的压缩包.</p>
+            </div>
+            <br />
+            <p class="pop_p">
+                提示：请不要上传任何含有政治敏感、色情等违法内容的作品。上传作品表示您完全接受捞3D网站的服务条款、隐私政策和版权政策。<br />
+            </p>
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    function UploadModel() {
+        this.fileTotalBytes = 0;
+    }
+
+
+    $(document).ready(function () {
+
+        UploadModel();
+
+        $("#edit_name").val("");
+        var thisUploadModel = this;
+        $("#button_select_model").uploadify({
+            swf: 'uploadify/uploadify.swf',
+            uploader: 'uploadify/uploadify.php',
+            fileObjName: 'obj',
+            auto: false,
+            'fileSizeLimit': '50MB',
+            'fileTypeExts': '*.rar; *.zip',
+            multi: false,
+            queueSizeLimit: 1,
+            'onUploadSuccess': function (file, data, response) {
+                //alert(data);
+                //console.log(data);
+                try {
+                    var result = $.parseJSON(data);
+                    if (result["ret"] && result["ret"] > 0) {
+                        if (result["msg"]) {
+                            alert(result["msg"]);
+                        }
+                        else {
+                            alert("上传失败！");
+                        }
+                    }
+                    else {
+                        var modelID = result;
+                        if (result["modelid"]) {
+                            modelID = result["modelid"];
+                        }
+                        window.parent.insertModelAddr(modelID);
+                    }
+                }
+                catch (e) {
+                    //alert("上传失败！");
+                    alert(e);
+                }
+            },
+            onSelect: function (file) {
+                $(".panel_select_hint").hide();
+                thisUploadModel.fileTotalBytes += file.size;
+                var $file = $("#" + file.id);
+                $file.find(".data").removeClass("data");
+                var size = file.size;
+                if (size >= 1000000)
+                    size = Math.round(size * 10 / 1000000) / 10 + "M";
+                else if (size >= 1000)
+                    size = Math.round(size * 10 / 1000 / 10) / 10 + "KB";
+                else
+                    size = size + "B";
+                $file.find(".fileName").text(file.name + "(" + size + ")");
+                var $img = $("<div class='img_upload_model'></div>");
+                var type = file.name.substring(file.name.lastIndexOf(".") + 1)
+						.toLowerCase();
+                if ("dae, fbx, 3ds, obj, mtl, x, dxf, stl, max, mb, ma"
+						.indexOf(type) >= 0)
+                    $img.css("background-position", "0 -114px");
+                else if ("bmp, tga, jpg, tif, png, gif, jpeg, dds"
+						.indexOf(type) >= 0)
+                    $img.css("background-position", "0 0".indexOf(type) >= 0);
+                else if ("rar, zip".indexOf(type) >= 0)
+                    $img.css("background-position", "0 -182px");
+                else
+                    $img.css("background-position", "0 -53px");
+
+                $file.append($img);
+            },
+            onCancel: function (file) {
+                $("#button_select_model").uploadify('cancel', file.id);
+                $("#" + file.id).remove();
+            },
+            onUploadStart: function (file) {
+                $('#panel_total_progress_bar').css("width", 0);
+            },
+            onUploadProgress: function (file, bytesUploaded, bytesTotal,
+					totalBytesUploaded, totalBytesTotal) {
+                var width = parseInt($('#panel_total_progress').css("width"));
+                $('#panel_total_progress_bar').css(
+						"width",
+						Math.min(1, totalBytesUploaded / thisUploadModel.fileTotalBytes)
+								* width + "px");
+            }
+        });
+        $("#button_select_model-button").text("添加模型").css("width", "120px");
+        $("#button_upload_model").bind("click", function () {
+            if ($.trim($("#edit_name").val()) == "") {
+                $("#edit_name").focus();
+                return false;
+            }
+            var chk_value = [];
+            $('input[name="tag"]:checked').each(function () {
+                chk_value.push($(this).val());
+            });
+            var tagList = $("#edit_other_tag").val();
+            if (chk_value.length == 0) {
+                if (tagList == "多个标签间用空格分开" || tagList == "") {
+                    $("#edit_other_tag").val("");
+                    $("#edit_other_tag").focus();
+                    return false;
+                }
+            }
+            $('input[name="tag"]:checked').each(function () {
+                if ($(this).val() != " ") {
+                    if (tagList == "多个标签间用空格分开") {
+                        tagList = "";
+                    }
+                    tagList += " " + $(this).val();
+                }
+            })
+            $("#button_select_model").uploadify("settings",
+                    "formData", {
+                        "tags": tagList,
+                        "modelName": $.trim($("#edit_name").val()),
+                        "introduce": $.trim($("#textarea_introduce").val())
+                    });
+            $("#button_select_model").uploadify('upload');
+        });
+        $("#img_cancel_total_progress").bind("click", function () {
+            $("#button_select_model").uploadify('cancel', '*');
+            $('#panel_total_progress_bar').css("width", 0);
+        });
+        $("#other_tag").on("click", function () {
+            $(this).hide();
+            $("#edit_other_tag").focus();
+        });
+        $("#edit_other_tag").on("click", function () {
+            if ($(this).val() == '多个标签间用空格分开') {
+                $(this).val("");
+            }
+        });
+        $("#edit_other_tag").on("blur", function () {
+            if ($(this).val() == '') {
+                $(this).val("多个标签间用空格分开");
+            }
+        });
+
+        var EX = {
+            addEvent: function (k, v) {
+                var me = this;
+                if (me.addEventListener)
+                    me.addEventListener(k, v, false);
+                else if (me.attachEvent)
+                    me.attachEvent("on" + k, v);
+                else
+                    me["on" + k] = v;
+            },
+            removeEvent: function (k, v) {
+                var me = this;
+                if (me.removeEventListener)
+                    me.removeEventListener(k, v, false);
+                else if (me.detachEvent)
+                    me.detachEvent("on" + k, v);
+                else
+                    me["on" + k] = null;
+            },
+            stop: function (evt) {
+                evt = evt || window.event;
+                evt.stopPropagation ? evt.stopPropagation() : evt.cancelBubble = true;
+            }
+        };
+        document.getElementById('pop').onclick = EX.stop;
+
+        $(".upload_tip").on("click", function () {
+            var o = document.getElementById('pop');
+            o.style.display = "";
+            setTimeout(function () { EX.addEvent.call(document, 'click', hide); });
+        });
+        $(".guanbi_hide").bind("click", function () {
+            var o = document.getElementById('pop');
+            o.style.display = "none";
+            EX.removeEvent.call(document, 'click', hide);
+        });
+
+    });
+</script>
+</html>

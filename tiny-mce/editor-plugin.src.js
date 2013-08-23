@@ -17,8 +17,8 @@
 		    ed.addCommand('lao3dPersonal', function () {
 				ed.windowManager.open({
 					file : url + '/dialog.php',
-					width: 620 + ed.getLang('lao3d_personal_edition.delta_width', 0),
-					height: 300 + ed.getLang('lao3d_personal_edition.delta_height', 0),
+					width: 700 + ed.getLang('lao3d_personal_edition.delta_width', 0),
+					height: 450 + ed.getLang('lao3d_personal_edition.delta_height', 0),
 					inline : 1
 				}, {
 					plugin_url : url, // Plugin absolute URL
@@ -65,7 +65,7 @@
                 author : 'wxstorm',
                 authorurl : 'http://www.lao3d.com/',
                 infourl: 'http://www.lao3d.com/',
-                version : "1.0"
+                version : "2.0"
             };
         }
 	});
